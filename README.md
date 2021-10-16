@@ -24,8 +24,23 @@ Milestone project 3
 
 
 ## Technologies used
+* [Django](https://www.djangoproject.com)
+	Django was used for template inheritance. 
+* [Materialize](https://materializecss.com)
+	* Materialize was used for the front end framework. 
+* [MongoDB](https://www.mongodb.com/)
+	* MongoDB was used as the database for this project.
+* [Flask](https://flask.palletsprojects.com/en/2.0.x/)
+	* Flask was used to build this python application.
+* [Werkzeug](https://pypi.org/project/Werkzeug/)
+	* Werkzeug was used to facilitate secure log in.
+* [Heroku](http://www.heroku.com)
+	* Heroku was used to connect the database to the application.
 
 ### Languages used
+* [HTML5](https://en.wikipedia.org/wiki/HTML5)
+* [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+* [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 
 ### Frameworks, Libraries & Programs Used
 * [Google Fonts](https://fonts.google.com/)
