@@ -28,6 +28,9 @@ Milestone project 3
 ### Languages used
 
 ### Frameworks, Libraries & Programs Used
-
+* [Google Fonts](https://fonts.google.com/)
+	* Goole Fonts were used to import the Permanent Marker font into the style.css file. This is used on all pages of the project.
+* [Font Awesome](https://fontawesome.com/)
+	* Font Awesome was used for the icon elements on the registration page.
 * [Wireframes|cc](https://wireframe.cc)
 	* Wireframes|cc is used for the initial wireframes.
