@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-<h3 class="center-align">Register</h3>
+<h3 class="center-align">Home</h3>
 <div class="row">
-    <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register') }}">
+    <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('login') }}">
         <div class="card-panel">
             <!-- username -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-user-plus prefix teal-text"></i>
+                    <i class="fas fa-user-cog prefix teal-text"></i>
                     <input id="username" name="username" type="text" class="validate" pattern="^[a-zA-Z0-9]{5,15}$" required>
                     <label for="username">Username</label>
                 </div>
@@ -19,16 +19,11 @@
                     <input id="password" name="password" type="password" class="validate" pattern="^[a-zA-Z0-9]{5,15}$" required>
                     <label for="password">Password</label>
                 </div>
-                <div class="input-field col s12">
-                    <i class="fas fa-user-lock prefix white-text"></i>
-                    <input id="password_check" name="password_check" type="password" class="validate">
-                    <label for="password_check">Retype password</label>
-                </div>
             </div>
-            <!-- register -->
+            <!-- login -->
             <div class="row">
                 <button type="submit" class="col s12 btn-large teal">
-                    Register now
+                    Log in
                 </button>
             </div>
         </div>
@@ -38,7 +33,7 @@
 <div class="row">
     <div class="col s12">
         <p class="center-align">
-            Already registered? <a href="{{ url_for('login')}}" class="teal-text">Log in</a>
+            New here? <a href="{{ url_for('register')}}" class="teal-text">Register</a>
         </p>
     </div>
 </div>
