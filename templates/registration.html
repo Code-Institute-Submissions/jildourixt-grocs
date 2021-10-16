@@ -8,16 +8,21 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-user-plus prefix teal-text"></i>
-                    <input id="username" name="username" type="text" class="validate">
+                    <input id="username" name="username" type="text" class="validate" pattern="^[a-zA-Z0-9]{5,15}$" required>
                     <label for="username">Username</label>
                 </div>
             </div>
-            <!-- passowrd -->
+            <!-- password -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-user-lock prefix teal-text"></i>
-                    <input id="password" name="password" type="password" class="validate">
+                    <input id="password" name="password" type="password" class="validate" pattern="^[a-zA-Z0-9]{5,15}$" required>
                     <label for="password">Password</label>
+                </div>
+                <div class="input-field col s12">
+                    <i class="fas fa-user-lock prefix white-text"></i>
+                    <input id="password_check" name="password_check" type="password" class="validate">
+                    <label for="password_check">Retype password</label>
                 </div>
             </div>
             <!-- register -->
