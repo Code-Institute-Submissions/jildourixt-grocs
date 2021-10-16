@@ -4,6 +4,7 @@ from flask import (Flask, flash, render_template, redirect, request, session,
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import datetime
 if os.path.exists("env.py"):
     import env
 
@@ -94,8 +95,27 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/add_item")
+@app.route("/add_item", methods=["GET", "POST"])
 def add_item():
+    if request.method == "POST":
+        last_used = datetime.now()
+        item = {
+            "category_name": request.form.get("category_name"),
+            "item_name": request.form.get("item_name"),
+            "in_cupboard": 1,
+            "last_used": last_used,
+            "created_by": session["user"]
+        }
+        # check if item already exists in db
+        # TODO: need to update this to check for existence under 'root' or session["user"]
+        if mongo.db.items.count_documents({ 'item_name': request.form.get("item_name") }, limit = 1) != 0:
+        	flash("Item already exists.")
+        	return render_template("add_item.html")
+        else:
+	        mongo.db.items.insert_one(item)
+	        flash("Item added successfully")
+	        return redirect(url_for("get_items"))
+
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_item.html", categories=categories)
 

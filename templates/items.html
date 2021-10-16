@@ -7,7 +7,7 @@
             {% if item.in_cupboard != 0 %}
                 <li class="collection-item avatar">
                     <span class="title">{{ item.item_name }}</span>
-                    <p> {{ item.category_name }} <br>
+                    <p class="grey-text lighten-5"> {{ item.category_name }} <br>
                     </p>
                     <div class="secondary-content">
                         <a href="#!"><i class="btn-floating btn-small waves-effect waves-light teal">-</i></a>
@@ -53,5 +53,6 @@
         {{ item.in_cupboard }}<br>
         {{ item.category_name }}<br>
         {{ item.last_used }}<br>
+        {{ item.created_by }}<br>
     {% endfor %} -->
 {% endblock %}
