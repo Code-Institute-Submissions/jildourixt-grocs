@@ -62,6 +62,8 @@ def login():
                                    request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(request.form.get("username")))
+                items = mongo.db.items.find()
+                return render_template("items.html", items=items)
             else:
                 # invalid password match
                 flash("Password/username incorrect")
@@ -118,6 +120,7 @@ def add_item():
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_item.html", categories=categories)
+
 
 
 if __name__ == "__main__":
