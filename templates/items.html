@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+
+	<h2>Groceries</h2>
+
+	 <ul class="collection">
+	 	{% for item in items %}
+	    <li class="collection-item avatar">
+	      <span class="title">{{ item.item_name }}</span>
+	      <p> {{ item.category_name }} <br>
+	         {{ item.in_cupboard }}
+	      </p>
+	      <a href="#!" class="secondary-content"><i class="btn-floating btn-small waves-effect waves-light teal">-</i></a>
+	    </li>
+	    {% endfor %}
+	    <a class="waves-effect waves-light btn add-btn">New item</a>
+	  </ul>
+
+
+    <!-- {% for item in items %}
+        {{ item.item_name }}
+        {{ item.in_cupboard }}<br>
+        {{ item.category_name }}<br>
+        {{ item.last_used }}<br>
+    {% endfor %} -->
+{% endblock %}
