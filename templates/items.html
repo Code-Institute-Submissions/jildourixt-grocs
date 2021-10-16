@@ -1,15 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
 <h3 class="center-align">Items</h3>
+<!-- Modal Trigger -->
+<div class="right-align">
+    <a class="col s8 waves-effect waves-light btn-floating btn-large modal-trigger teal lighten-1" href="#modal1"><i class="fas fa-cart-plus"></i></a>
+</div>
 <div class="row col s12 m8 offset-m2">
+    <!-- Display items on grocery list -->
     <ul class="collection">
         {% for item in items %}
             {% if item.in_cupboard != 0 %}
                 <li class="collection-item avatar">
                     <span class="title">{{ item.item_name }}</span>
-                    <p class="grey-text lighten-5"> {{ item.category_name }} <br>
+                    <p class="teal-text lighten-5"> {{ item.category_name }} <br>
                     </p>
                     <div class="secondary-content">
+                        <a href="#!"><i class="btn-floating btn-small waves-effect waves-light red"><i class="fas fa-ban"></i></i></a>
                         <a href="#!"><i class="btn-floating btn-small waves-effect waves-light teal">-</i></a>
                         <a><i class="btn-floating btn-small disabled">{{ item.in_cupboard }}</i></a>
                         <a href="#!"><i class="btn-floating btn-small waves-effect waves-light teal">+</i></a>
@@ -17,8 +23,6 @@
                 </li>
             {% endif %}
         {% endfor %}
-        <!-- Modal Trigger -->
-        <a class="col s12 waves-effect waves-light btn-large modal-trigger" href="#modal1">Add item</a>
     </ul>
 
     <!-- Modal Structure -->
@@ -46,7 +50,29 @@
             </p>
         </div>
     </div>
+    <!-- Modal Structure -->
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <h4>Delete grocery list</h4>
+            <p>You are about to delete your entire grocery list. Are you sure you want to go ahead?</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat teal-text">No</a>
+            <!-- TODO: add functionality to set all in_cupboard values to 0 when clicking "yes" -->
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Yes</a>
+        </div>
+    </div>
 </div>
+
+<footer class="page-footer white row col s12 m8 offset-m2" style="position:fixed;bottom:0;left:0;width:100%;">
+    <!-- BUTTONS -->
+    <div>
+        <!-- All items completed button -->
+        <a class="col s4 waves-effect waves-light btn-large modal-trigger teal darken-3" href="#modal2"><i class="fas fa-trash"></i></a>
+        <!-- Modal Trigger -->
+        <a class="col s8 waves-effect waves-light btn-large modal-trigger teal lighten-1" href="#modal1"><i class="fas fa-cart-plus"></i></a>
+    </div>
+</footer>
 <!-- TODO: remove this comment 
     {% for item in items %}
         {{ item.item_name }}
