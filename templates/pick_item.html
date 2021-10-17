@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h3 class="teal-text center-align black-text">Pick your items</h3>
+<div class="row">
+	<ul class="collection with-header">
+		{% for category in categories %}
+			{% for item in items %}
+				    <li class="collection-item">
+				    	<div><i class="{{ category.fa_icon }}"></i> {{ item.item_name }} {{ item.in_cupboard }}
+				    		<a href="#!" class="secondary-content"><i class="fas fa-plus"></i></a>
+				    	</div>
+				    </li>
+
+				{% endif%}
+        {% endfor %}
+    {% endfor %}
+
+    <p class="">Can't find what you're looking for?
+    	<a href="{{ url_for('add_item') }}" class="">Create your own!</a>
+    </p>
+</div>
+
+<footer class="page-footer white row col s12 m8 offset-m2" style="position:fixed;bottom:0;left:0;width:100%;">
+    <!-- BUTTONS -->
+    <div>
+        <!-- Pick all items and add to list button -->
+        <a class="col s12 waves-effect waves-light btn-large modal-trigger teal lighten-1" href="#modal1"><i class="fas fa-cart-plus"></i></a>
+    </div>
+</footer>
+{% endblock %}

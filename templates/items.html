@@ -5,7 +5,7 @@
 <div class="row">
     <div class="col s12 m8 offset-m2">
         <div class="right-align">
-            <a class="waves-effect waves-light btn-floating btn-large pulse modal-trigger teal lighten-1" href="#modal1"><i class="fas fa-cart-plus"></i></a>
+            <a class="waves-effect waves-light btn-floating btn-large pulse teal lighten-1" href="{{ url_for('add_item') }}"><i class="fas fa-cart-plus"></i></a>
         </div>
         <div class="card-panel amber lighten-5">
             <!-- Display items on grocery list -->
@@ -16,51 +16,34 @@
                             <span class="title">{{ item.item_name }}</span>
                             <p class="teal-text lighten-5"> {{ item.category_name }} <br>
                             </p>
+                            <!-- buttons -->
                             <div class="secondary-content">
-                                <a href="#!"><i class="btn-floating btn-small waves-effect waves-light red"><i class="fas fa-ban"></i></i></a>
+                                <!-- edit button -->
+                                <a href="{{ url_for('edit_item', item_id=item._id) }}"><i class="btn-floating btn-small waves-effect waves-light teal darken-3"><i class="fas fa-pen"></i></i></a>
+                                <!-- delete button -->
+                                <a href="{{ url_for('delete_item', item_id=item._id) }}"><i class="btn-floating btn-small waves-effect waves-light red"><i class="fas fa-ban"></i></i></a>
+                                <!-- minus one / count / plus one -->
                                 <a href="#!"><i class="btn-floating btn-small waves-effect waves-light teal">-</i></a>
                                 <a><i class="btn-floating btn-small disabled">{{ item.in_cupboard }}</i></a>
-                                <a href="#!"><i class="btn-floating btn-small waves-effect waves-light teal">+</i></a>
+                                <a href="{{ url_for('plus_one', item_id=item._id) }}"><i class="btn-floating btn-small waves-effect waves-light teal">+</i></a>
                             </div>
                         </li>
                     {% endif %}
                 {% endfor %}
             </ul>
 
-            <!-- Modal 1: show options to add -->
-            <div id="modal1" class="modal bottom-sheet">
-                <div class="modal-content">
-                    <h4 class="teal-text">Grocery items</h4>
-                        {% for category in categories %}
-                            {% for item in items %}
-                                {% if item.category_name == category %}
-                                    <ul class="collection with-header">
-                                        <li class="collection-header"><h4>{{ category.category_name }}</h4></li>
-                                        <li class="collection-item"><div>{{ item.item_name }}<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
-                                    </ul>
-                                {% endif%}
-                            {% endfor %}
-                        {% endfor %}
-                </div>
-                <div class="modal-footer">
-                    <p class="waves-effect waves-green btn-flat">
-                        Can't find what you're looking for?
-                        <a href="{{ url_for('add_item') }}" class="">Create your own!</a>
-                    </p>
-                </div>
-            </div>
             <!-- Modal 2: check in before deletion -->
-            <div id="modal2" class="modal">
+            <!-- <div id="modal2" class="modal">
                 <div class="modal-content">
                     <h4>Delete grocery list</h4>
                     <p>You are about to delete your entire grocery list. Are you sure you want to go ahead?</p>
                 </div>
                 <div class="modal-footer">
                     <a href="#!" class="modal-close waves-effect waves-green btn-flat teal-text">No</a>
-                    <!-- TODO: add functionality to set all in_cupboard values to 0 when clicking "yes" -->
+                    TODO: add functionality to set all in_cupboard values to 0 when clicking "yes"
                     <a href="#!" class="modal-close waves-effect waves-green btn-flat">Yes</a>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
@@ -68,10 +51,7 @@
 <footer class="page-footer white row col s12 m8 offset-m2" style="position:fixed;bottom:0;left:0;width:100%;">
     <!-- BUTTONS -->
     <div>
-        <!-- All items completed button -->
-        <a class="col s4 waves-effect waves-light btn-large modal-trigger teal darken-3" href="#modal2"><i class="fas fa-trash"></i></a>
-        <!-- Modal Trigger -->
-        <a class="col s8 waves-effect waves-light btn-large modal-trigger teal lighten-1" href="#modal1"><i class="fas fa-cart-plus"></i></a>
+        <a class="col s12 waves-effect waves-light btn-large modal-trigger teal lighten-1" href="{{ url_for('add_item') }}"><i class="fas fa-cart-plus"></i></a>
     </div>
 </footer>
 <!-- TODO: remove this comment 
