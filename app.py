@@ -192,7 +192,6 @@ def delete_item(item_id):
     print(item)
     mongo.db.items.remove({"_id": ObjectId(item_id)})
     flash("Item deleted.")
-    return redirect(url_for("get_items"))
     # TODO: return to "catagories/<catagory_id>"
     #category = mongo.db.categories.find({"category_name":  })
     #return redirect(url_for("pick_item", category_id=category._id))
