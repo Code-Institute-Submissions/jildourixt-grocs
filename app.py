@@ -33,6 +33,14 @@ def pick_item(category_id):
     return render_template("pick_item.html", items=items, category=category)
 
 
+@app.route("/pick_plus_one/<category_id>/<item_id>", methods=["GET", "POST"])
+def pick_plus_one(item_id, category_id):
+    mongo.db.items.update({"_id": ObjectId(item_id)}, { '$inc' : { "in_cupboard": 1 }})
+    category_id = category_id
+    category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
+    return redirect(url_for("pick_item", category_id=category_id))
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
