@@ -28,7 +28,7 @@ def get_items():
 
 @app.route("/pick_item/<category_id>", methods=["GET", "POST"])
 def pick_item(category_id):
-    items = mongo.db.items.find()
+    items = mongo.db.items.find().sort("item_name", 1)
     category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
     return render_template("pick_item.html", items=items, category=category)
 
