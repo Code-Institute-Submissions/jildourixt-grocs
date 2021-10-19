@@ -26,11 +26,11 @@ def get_items():
 
 
 
-@app.route("/pick_item")
-def pick_item():
+@app.route("/pick_item/<category_id>", methods=["GET", "POST"])
+def pick_item(category_id):
     items = mongo.db.items.find().sort("category_name", 1)
-    categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("pick_item.html", items=items, categories=categories)
+    category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
+    return render_template("pick_item.html", items=items, category=category)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -171,12 +171,13 @@ def minus_one(item_id):
 @app.route("/set_zero/<item_id>")
 def set_zero(item_id):
     mongo.db.items.update({"_id": ObjectId(item_id)}, { "in_cupboard": 0 })
-    flash("Item removed from list")
+    flash("Item removed from list.")
     print(item_id)
 
     items = mongo.db.items.find()
     return render_template("items.html", items=items)
 
+# TODO: bind this to pick_item pages buttons for item deletion
 @app.route("/delete_item/<item_id>")
 def delete_item(item_id):
     item = mongo.db.items.find({"_id": ObjectId(item_id)})
