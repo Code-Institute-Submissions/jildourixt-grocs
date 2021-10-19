@@ -41,6 +41,13 @@ def pick_plus_one(item_id, category_id):
     return redirect(url_for("pick_item", category_id=category_id))
 
 
+@app.route("/search_plus_one/<item_id>", methods=["GET", "POST"])
+def search_plus_one(item_id):
+    mongo.db.items.update({"_id": ObjectId(item_id)}, { '$inc' : { "in_cupboard": 1 }})
+    category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
+    return redirect(url_for("categories"))
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -205,6 +212,17 @@ def delete_item(item_id):
     #category = mongo.db.categories.find({"category_name":  })
     #return redirect(url_for("pick_item", category_id=category._id))
     return redirect(url_for("categories"))
+
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    items = list(mongo.db.items.find({"$text": {"$search": query}}))
+    if len(items) == 0:
+        flash("No results.")
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    # TODO: get category_id to pass on to href for pick_item(category_id)
+    return render_template("categories.html", items=items, categories=categories)
 
 
 if __name__ == "__main__":
