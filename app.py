@@ -16,12 +16,21 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+# TODO: check all flash items for use of full stops and correct capitalisation. 
 
 @app.route("/")
 @app.route("/get_items")
 def get_items():
-    items = mongo.db.items.find()
+    items = mongo.db.items.find().sort("category_name", 1)
     return render_template("items.html", items=items)
+
+
+
+@app.route("/pick_item")
+def pick_item():
+    items = mongo.db.items.find().sort("category_name", 1)
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("pick_item.html", items=items, categories=categories)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -97,6 +106,11 @@ def logout():
     return redirect(url_for("login"))
 
 
+@app.route("/categories")
+def categories():
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("categories.html", categories=categories)
+
 @app.route("/add_item", methods=["GET", "POST"])
 def add_item():
     if request.method == "POST":
@@ -109,18 +123,73 @@ def add_item():
             "created_by": session["user"]
         }
         # check if item already exists in db
-        # TODO: need to update this to check for existence under 'root' or session["user"]
-        if mongo.db.items.count_documents({ 'item_name': request.form.get("item_name") }, limit = 1) != 0:
-        	flash("Item already exists.")
-        	return render_template("add_item.html")
+        if mongo.db.items.count_documents({ 'item_name': request.form.get("item_name"), 'created_by' : session["user"] }, limit = 1) != 0:
+            flash("Item already exists.")
+            return render_template("add_item.html")
         else:
-	        mongo.db.items.insert_one(item)
-	        flash("Item added successfully")
-	        return redirect(url_for("get_items"))
+            mongo.db.items.insert_one(item)
+            flash("Item added successfully")
+            return redirect(url_for("get_items"))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_item.html", categories=categories)
 
+
+@app.route("/edit_item/<item_id>", methods=["GET", "POST"])
+def edit_item(item_id):
+    last_used = datetime.now()
+    if request.method == "POST":
+        submit = {
+            "category_name": request.form.get("category_name"),
+            "item_name": request.form.get("item_name"),
+            "in_cupboard": 1,
+            "last_used": last_used,
+            "created_by": session["user"]
+        }
+        mongo.db.items.update({"_id": ObjectId(item_id)}, submit)
+        flash("Item successfully updated")
+
+    item = mongo.db.items.find_one({"_id": ObjectId(item_id)})
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("edit_item.html", item=item, categories=categories)
+
+
+@app.route("/plus_one/<item_id>", methods=["GET", "POST"])
+def plus_one(item_id):
+    mongo.db.items.update({"_id": ObjectId(item_id)}, { '$inc' : { "in_cupboard": 1 }})
+    flash("Item updated")
+    print(item_id)
+
+    items = mongo.db.items.find()
+    return render_template("items.html", items=items)
+
+
+@app.route("/minus_one/<item_id>", methods=["GET", "POST"])
+def minus_one(item_id):
+    mongo.db.items.update({"_id": ObjectId(item_id)}, { '$inc' : { "in_cupboard": -1 }})
+    flash("Item updated")
+    print(item_id)
+
+    items = mongo.db.items.find()
+    return render_template("items.html", items=items)
+
+
+@app.route("/set_zero/<item_id>")
+def set_zero(item_id):
+    mongo.db.items.update({"_id": ObjectId(item_id)}, { "in_cupboard": 0 })
+    flash("Item removed from list")
+    print(item_id)
+
+    items = mongo.db.items.find()
+    return render_template("items.html", items=items)
+
+@app.route("/delete_item/<item_id>")
+def delete_item(item_id):
+    item = mongo.db.items.find({"_id": ObjectId(item_id)})
+    print(item)
+    mongo.db.items.remove({"_id": ObjectId(item_id)})
+    flash("Item deleted.")
+    return redirect(url_for("get_items"))
 
 
 if __name__ == "__main__":
