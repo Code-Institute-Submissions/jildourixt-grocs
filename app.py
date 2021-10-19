@@ -157,9 +157,6 @@ def edit_item(item_id):
 @app.route("/plus_one/<item_id>", methods=["GET", "POST"])
 def plus_one(item_id):
     mongo.db.items.update({"_id": ObjectId(item_id)}, { '$inc' : { "in_cupboard": 1 }})
-    flash("Item updated")
-    print(item_id)
-
     items = mongo.db.items.find()
     return render_template("items.html", items=items)
 
@@ -167,9 +164,6 @@ def plus_one(item_id):
 @app.route("/minus_one/<item_id>", methods=["GET", "POST"])
 def minus_one(item_id):
     mongo.db.items.update({"_id": ObjectId(item_id)}, { '$inc' : { "in_cupboard": -1 }})
-    flash("Item updated")
-    print(item_id)
-
     items = mongo.db.items.find()
     return render_template("items.html", items=items)
 
