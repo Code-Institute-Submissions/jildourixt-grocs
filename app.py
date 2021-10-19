@@ -170,7 +170,8 @@ def minus_one(item_id):
 
 @app.route("/set_zero/<item_id>")
 def set_zero(item_id):
-    mongo.db.items.update({"_id": ObjectId(item_id)}, { "in_cupboard": 0 })
+    item = mongo.db.items.find_one({"_id": ObjectId(item_id)})
+    mongo.db.items.update({"_id": ObjectId(item_id)}, { "$set" : { "in_cupboard": 0 }})
     flash("Item removed from list.")
     print(item_id)
 
