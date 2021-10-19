@@ -99,6 +99,7 @@ def profile(username):
     # get user's username from db
     username = mongo.db.users.find_one({"username":
                                         session["user"]})["username"]
+    username = mongo.db.users.find_one({"username":session["user"]})["username"]
 
     if session["user"]:
         return render_template("profile.html", username=username)
