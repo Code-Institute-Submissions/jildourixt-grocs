@@ -65,6 +65,15 @@ def register():
 
     return render_template("registration.html")
 
+def initialise():
+    if session["user"]:
+        admin_items = mongo.db.items.find({"created_by": "root"})
+        for item in admin_items:
+            # TODO: change user from "admin" to session["user"]
+            item["created_by"] = session["user"]
+            # TODO: push new item to db
+            mongo.db.items.update({"_id": ObjectId(item_id)}, item)
+
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
