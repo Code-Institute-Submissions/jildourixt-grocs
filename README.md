@@ -88,7 +88,7 @@ Further testing was done manually.
 
 ### Private website
 
-The website is deployed on Google Cloud and hosted on my personal website ( jildourixt.nl)
+The website is deployed on Google Cloud and hosted on my personal website (jildourixt.nl). It is also hosted on [34.116.200.121](http://34.116.200.121/home)
 
 ### Forking the GitHub Repository
 
