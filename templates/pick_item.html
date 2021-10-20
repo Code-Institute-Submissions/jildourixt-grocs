@@ -4,12 +4,12 @@
 <div class="row">
 	<div class="col s12 m8 offset-m2">
 		<div class="card-panel amber lighten-5">
-			<ul class="collection">
+			<ul class="collection no-border">
 				<!-- dynamic category name -->
 				<h4><i class="{{ category.fa_icon }} teal-text"></i> {{ category.category_name }}</h4>
 				<!-- list of items in category -->
 				{% for item in items %}
-					{% if item.category_name == category.category_name %}
+					{% if (item.category_name == category.category_name) and (session.user|lower == item.created_by|lower) %}
 						<li class="collection-item amber lighten-5">
 							<div>{{ item.item_name }}
 								<div class="secondary-content">

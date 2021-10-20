@@ -6,12 +6,14 @@
         <form class="col s12" method="POST" action="{{ url_for('add_item') }}">
             <div class="row">
                 <div class="card-panel amber lighten-5">
+
                     <!-- pick grocery item -->
                     <div class="input-field col s12">
                         <i class="fas fa-shopping-basket prefix teal-text"></i>
                         <input id="item_name" name="item_name" type="text" class="validate" minlength="2" maxlength="50" required>
                         <label for="item_name">Grocery item</label>
                     </div>
+
                     <!-- pick category -->
                     <div class="input-field col s12">
                         <i class="fas fa-folder-open prefix teal-text"></i>
@@ -23,8 +25,7 @@
                         </select>
                         <label for="category_name">Category</label>
                     </div>
-                    <!--TODO: add amount of items option
-                            TODO: add action from Grocery list page to this page / add overlay to that page with the above as content.-->
+
                     <!-- submit button -->
                     <div class="row">
                         <div class="col s12 center-align">
