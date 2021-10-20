@@ -35,7 +35,7 @@
 					                	{% for item in items %}
 					                		{% if session.user|lower == item.created_by|lower %}
 					                		<li class="collection-item amber lighten-5">
-												<div class="left-align">{{ item.item_name }} ({{ item.category_name}}) {{ item.created_by }}
+												<div class="left-align">{{ item.item_name }} ({{ item.category_name}})
 													<div class="secondary-content">
 														<!-- minus + count + plus button -->
 														<a href="{{ url_for('get_items') }}"><i class="btn-floating btn-small waves-effect waves-light teal fas fa-minus"></i></a>

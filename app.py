@@ -131,7 +131,7 @@ def initialise(username):
             new_item = deepcopy(item)
             del new_item["_id"]
             mongo.db.items.insert(new_item)
-    return redirect(url_for("profile", username=session["user"]))
+    return redirect(url_for("profile", username=username))
 
 
 @app.route("/logout")
@@ -208,24 +208,23 @@ def minus_one(item_id):
 
 @app.route("/set_zero/<item_id>")
 def set_zero(item_id):
-    #item = mongo.db.items.find_one({"_id": ObjectId(item_id)})
     mongo.db.items.update({"_id": ObjectId(item_id)}, { "$set" : { "in_cupboard": 0 }})
     flash("Item removed from list.")
-    print(item_id)
-
     items = mongo.db.items.find()
     return render_template("items.html", items=items)
 
+@app.route("/set_zero/<item_id>")
+def set_all_zero(username):
+    mongo.db.items.update({"_id": ObjectId(item_id)}, { "$set" : { "in_cupboard": 0 }})
+    flash("Item removed from list.")
+    items = mongo.db.items.find()
+    return render_template("items.html", items=items)
 
 @app.route("/delete_item/<item_id>")
 def delete_item(item_id):
     item = mongo.db.items.find({"_id": ObjectId(item_id)})
-    print(item)
     mongo.db.items.remove({"_id": ObjectId(item_id)})
     flash("Item deleted.")
-    # TODO: return to "catagories/<catagory_id>"
-    #category = mongo.db.categories.find({"category_name":  })
-    #return redirect(url_for("pick_item", category_id=category._id))
     return redirect(url_for("categories"))
 
 
