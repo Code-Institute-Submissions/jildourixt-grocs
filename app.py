@@ -82,9 +82,7 @@ def register():
         # put the new user into 'session' cookie
 
         session['user'] = request.form.get('username').lower()
-        flash('Registration Successful! Please click button below to initialise data.'
-              )
-        return redirect(url_for('profile', username=session['user']))
+        return redirect(url_for('initialise', username=session['user']))
 
     return render_template('registration.html')
 
@@ -161,7 +159,7 @@ def initialise(username):
             new_item = deepcopy(item)
             del new_item['_id']
             mongo.db.items.insert_one(new_item)
-    flash('Restored initial items')
+    flash('Registration successful and initial items have been put into place.')
     return redirect(url_for('profile', username=username))
 
 
