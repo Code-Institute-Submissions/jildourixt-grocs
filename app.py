@@ -17,6 +17,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 # TODO: check all flash items for use of full stops and correct capitalisation. 
+# TODO: add sort buttons to items page (if time)
 
 @app.route("/")
 @app.route("/get_items")
@@ -41,6 +42,7 @@ def pick_plus_one(item_id, category_id):
     return redirect(url_for("pick_item", category_id=category_id))
 
 
+# TODO: fix bug on this def. atm results in + on categories.html search results not loading
 @app.route("/search_plus_one/<item_id>", methods=["GET", "POST"])
 def search_plus_one(item_id):
     mongo.db.items.update({"_id": ObjectId(item_id)}, { '$inc' : { "in_cupboard": 1 }})
@@ -74,7 +76,7 @@ def register():
 
 def initialise():
     if session["user"]:
-        admin_items = mongo.db.items.find({"created_by": "root"})
+        admin_items = mongo.db.items.find({"created_by": "admin"})
         for item in admin_items:
             # TODO: change user from "admin" to session["user"]
             item["created_by"] = session["user"]
@@ -139,8 +141,8 @@ def add_item():
     if request.method == "POST":
         last_used = datetime.now()
         item = {
-            "category_name": request.form.get("category_name"),
-            "item_name": request.form.get("item_name"),
+            "category_name": request.form.get("category_name").lower(),
+            "item_name": request.form.get("item_name").lower(),
             "in_cupboard": 1,
             "last_used": last_used,
             "created_by": session["user"]
@@ -163,8 +165,8 @@ def edit_item(item_id):
     last_used = datetime.now()
     if request.method == "POST":
         submit = {
-            "category_name": request.form.get("category_name"),
-            "item_name": request.form.get("item_name"),
+            "category_name": request.form.get("category_name").lower(),
+            "item_name": request.form.get("item_name").lower(),
             "in_cupboard": 1,
             "last_used": last_used,
             "created_by": session["user"]
@@ -201,7 +203,7 @@ def set_zero(item_id):
     items = mongo.db.items.find()
     return render_template("items.html", items=items)
 
-# TODO: bind this to pick_item pages buttons for item deletion
+
 @app.route("/delete_item/<item_id>")
 def delete_item(item_id):
     item = mongo.db.items.find({"_id": ObjectId(item_id)})
@@ -216,7 +218,7 @@ def delete_item(item_id):
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
-    query = request.form.get("query")
+    query = request.form.get("query").lower()
     items = list(mongo.db.items.find({"$text": {"$search": query}}))
     if len(items) == 0:
         flash("No results.")
