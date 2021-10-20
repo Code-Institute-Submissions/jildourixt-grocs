@@ -14,9 +14,9 @@
             <!-- Display items on grocery list -->
             <ul class="collection no-border">
                 <!-- Empty list button -->
-                <li>
+                <!-- <li>
                     <a class="btn-floating btn-small waves-effect waves-light red fas fa-trash-alt right-align modal-trigger" href="#modal1"></a>
-                </li>
+                </li> -->
                 {% for item in items %}
                     {% if (session.user|lower == item.created_by|lower) and (item.in_cupboard > 0) %}
                         <li class="collection-item avatar amber lighten-5">
