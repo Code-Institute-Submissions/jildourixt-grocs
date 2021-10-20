@@ -21,6 +21,11 @@ mongo = PyMongo(app)
 # TODO: add sort buttons to items page (if time)
 
 @app.route("/")
+@app.route("/home")
+def home():
+    return render_template("home.html")
+
+
 @app.route("/get_items")
 def get_items():
     items = mongo.db.items.find().sort("category_name", 1)

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h3 class="center-align">Home</h3>
+<!-- Modal Trigger -->
+<div class="row">
+    <div class="col s12 m8 offset-m2">
+
+        <div class="card-panel amber lighten-5">
+            <p>Welcome to Grogs. The place to keep track of your groceries right in your pocket. The minimalist way. </p>
+            <div class="center-align">
+                <a class="waves-effect waves-light btn-large s6 m4" href="{{ url_for('login') }}">Log in</a>
+                <a class="waves-effect waves-light btn-large s6 m4" href="{{ url_for('register') }}">Register</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
