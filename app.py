@@ -160,7 +160,7 @@ def initialise(username):
 
             new_item = deepcopy(item)
             del new_item['_id']
-            mongo.db.items.insert(new_item)
+            mongo.db.items.insert_one(new_item)
     flash('Restored initial items')
     return redirect(url_for('profile', username=username))
 
