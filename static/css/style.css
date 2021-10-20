@@ -24,3 +24,12 @@ h4 {
 .no-border {
     border-style: hidden;
 }
+
+
+/*media queries*/
+@media (max-width: 812px) {
+  .logo-cart {
+     display: none;
+     visibility: hidden;
+  } 
+}
