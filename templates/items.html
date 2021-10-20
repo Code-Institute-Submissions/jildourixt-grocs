@@ -1,47 +1,40 @@
 {% extends "base.html" %}
 {% block content %}
-<h3 class="center-align">Items</h3>
-<!-- Modal Trigger -->
-<div class="row">
-    <div class="col s12 m8 offset-m2">
-
-        <!-- add item button -->
-        <div class="right-align">
-            <a class="waves-effect waves-light btn-floating btn-large pulse teal lighten-1" href="{{ url_for('categories') }}"><i class="fas fa-cart-plus"></i></a>
-        </div>
-
-        <div class="card-panel amber lighten-5">
-            <!-- Display items on grocery list -->
-            <ul class="collection no-border">
-                <!-- Empty list button -->
-                <!-- <li>
-                    <a class="btn-floating btn-small waves-effect waves-light red fas fa-trash-alt right-align modal-trigger" href="#modal1"></a>
-                </li> -->
-                {% for item in items %}
-                    {% if (session.user|lower == item.created_by|lower) and (item.in_cupboard > 0) %}
-                        <li class="collection-item avatar amber lighten-5">
-                            <span class="title">{{ item.item_name }}</span>
-                            <p class="teal-text lighten-5"> {{ item.category_name }} <br>
-                            </p>
-
-                            <!-- buttons -->
-                            <div class="secondary-content">
-                                <!-- edit button -->
-                                <a href="{{ url_for('edit_item', item_id=item._id) }}"><i class="btn-floating btn-small waves-effect waves-light teal darken-3"><i class="fas fa-pen"></i></i></a>
-                                <!-- delete button -->
-                                <a href="{{ url_for('set_zero', item_id=item._id) }}"><i class="btn-floating btn-small waves-effect waves-light red"><i class="fas fa-ban"></i></i></a>
-                                <!-- minus one button -->
-                                <a href="{{ url_for('minus_one', item_id=item._id) }}"><i class="btn-floating btn-small waves-effect waves-light teal fas fa-minus"></i></a>
-                                <!-- item counter -->
-                                <a><i class="btn-floating btn-small disabled">{{ item.in_cupboard }}</i></a>
-                                <!-- plus one button -->
-                                <a href="{{ url_for('plus_one', item_id=item._id) }}"><i class="btn-floating btn-small waves-effect waves-light teal fas fa-plus"></i></a>
-                            </div>
-                        </li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
+    <h3 class="center-align">Items</h3>
+    <!-- Modal Trigger -->
+    <div class="row">
+        <div class="col s12 m8 offset-m2">
+            <!-- add item button -->
+            <div class="right-align">
+                <a class="waves-effect waves-light btn-floating btn-large pulse teal lighten-1" href="{{ url_for('categories') }}"><i class="fas fa-cart-plus"></i></a>
+            </div>
+            <div class="card-panel amber lighten-5">
+                <!-- Display items on grocery list -->
+                <ul class="collection no-border">
+                    {% for item in items %}
+                        {% if (session.user|lower == item.created_by|lower) and (item.in_cupboard > 0) %}
+                            <li class="collection-item avatar amber lighten-5">
+                                <span class="title">{{ item.item_name }}</span>
+                                <p class="teal-text lighten-5"> {{ item.category_name }} <br>
+                                </p>
+                                <!-- buttons -->
+                                <div class="secondary-content">
+                                    <!-- edit button -->
+                                    <a href="{{ url_for('edit_item', item_id=item._id) }}"><i class="btn-floating btn-small waves-effect waves-light teal darken-3"><i class="fas fa-pen"></i></i></a>
+                                    <!-- delete button -->
+                                    <a href="{{ url_for('set_zero', item_id=item._id) }}"><i class="btn-floating btn-small waves-effect waves-light red"><i class="fas fa-ban"></i></i></a>
+                                    <!-- minus one button -->
+                                    <a href="{{ url_for('minus_one', item_id=item._id) }}"><i class="btn-floating btn-small waves-effect waves-light teal fas fa-minus"></i></a>
+                                    <!-- item counter -->
+                                    <a><i class="btn-floating btn-small disabled">{{ item.in_cupboard }}</i></a>
+                                    <!-- plus one button -->
+                                    <a href="{{ url_for('plus_one', item_id=item._id) }}"><i class="btn-floating btn-small waves-effect waves-light teal fas fa-plus"></i></a>
+                                </div>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
     </div>
-</div>
 {% endblock %}

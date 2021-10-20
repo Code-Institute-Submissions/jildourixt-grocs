@@ -1,41 +1,38 @@
 {% extends "base.html" %}
 {% block content %}
-<h3 class="teal-text center-align black-text">Create a new item</h3>
-<div class="row">
-    <div class="col s12 m8 offset-m2">
-        <form class="col s12" method="POST" action="{{ url_for('add_item') }}">
-            <div class="row">
-                <div class="card-panel amber lighten-5">
-
-                    <!-- pick grocery item -->
-                    <div class="input-field col s12">
-                        <i class="fas fa-shopping-basket prefix teal-text"></i>
-                        <input id="item_name" name="item_name" type="text" class="validate" minlength="2" maxlength="50" required>
-                        <label for="item_name">Grocery item</label>
-                    </div>
-
-                    <!-- pick category -->
-                    <div class="input-field col s12">
-                        <i class="fas fa-folder-open prefix teal-text"></i>
-                        <select id="category_name" name="category_name" class="validate" required>
-                            <option value="" disabled selected>Category</option>
-                            {% for category in categories %}
-                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
-                            {% endfor %}
-                        </select>
-                        <label for="category_name">Category</label>
-                    </div>
-
-                    <!-- submit button -->
-                    <div class="row">
-                        <div class="col s12 center-align">
-                            <button type="submit" class="col s12 waves-effect waves-light btn-large">Create item
-                            </button>
+    <h3 class="teal-text center-align black-text">Create a new item</h3>
+    <div class="row">
+        <div class="col s12 m8 offset-m2">
+            <form class="col s12" method="POST" action="{{ url_for('add_item') }}">
+                <div class="row">
+                    <div class="card-panel amber lighten-5">
+                        <!-- pick grocery item -->
+                        <div class="input-field col s12">
+                            <i class="fas fa-shopping-basket prefix teal-text"></i>
+                            <input id="item_name" name="item_name" type="text" class="validate" minlength="2" maxlength="50" required>
+                            <label for="item_name">Grocery item</label>
+                        </div>
+                        <!-- pick category -->
+                        <div class="input-field col s12">
+                            <i class="fas fa-folder-open prefix teal-text"></i>
+                            <select id="category_name" name="category_name" class="validate" required>
+                                <option value="" disabled selected>Category</option>
+                                {% for category in categories %}
+                                    <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                                {% endfor %}
+                            </select>
+                            <label for="category_name">Category</label>
+                        </div>
+                        <!-- submit button -->
+                        <div class="row">
+                            <div class="col s12 center-align">
+                                <button type="submit" class="col s12 waves-effect waves-light btn-large">Create item
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
-</div>
 {% endblock %}

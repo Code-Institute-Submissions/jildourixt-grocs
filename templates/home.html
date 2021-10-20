@@ -1,25 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
-<h3 class="center-align">Home</h3>
-<!-- Modal Trigger -->
-<div class="row">
-    <div class="col s12 m8 offset-m2">
-
-        <div class="card-panel amber lighten-5">
-        <h1 class="brand-logo teal-text center-align"><i class="fas fa-shopping-cart"></i> GROCS</h1>
-            <p>Welcome to Grogs. The place to keep track of your groceries right in your pocket. The minimalist way. </p>
-            <ul style="font-weight: 400">
-                <li><i class="fas fa-list teal-text"></i> Make your own shopping list</li>
-                <li><i class="fas fa-save teal-text"></i> Pick items from a provided list</li>
-                <li><i class="fas fa-plus teal-text"></i> Add your own items to the list of items to pick from in future</li>
-                <li><i class="fas fa-trash teal-text"></i> Delete items from the provided list or from your own items</li>
-                <li><i class="fas fa-edit teal-text"></i> Edit items on your shopping list</li>
-            </ul>
-            <div class="center-align">
-                <a class="waves-effect waves-light btn-large s6 m4" href="{{ url_for('login') }}">Log in</a>
-                <a class="waves-effect waves-light btn-large s6 m4" href="{{ url_for('register') }}">Register</a>
+    <h3 class="center-align">Home</h3>
+    <!-- Modal Trigger -->
+    <div class="row">
+        <div class="col s12 m8 offset-m2">
+            <div class="card-panel amber lighten-5">
+                <h1 class="brand-logo teal-text center-align"><i class="fas fa-shopping-cart"></i> GROCS</h1>
+                <p>Welcome to Grogs. The place to keep track of your groceries right in your pocket. The minimalist way. </p>
+                <ul style="font-weight: 400">
+                    <li><i class="fas fa-list teal-text"></i> Make your own shopping list</li>
+                    <li><i class="fas fa-save teal-text"></i> Pick items from a provided list</li>
+                    <li><i class="fas fa-plus teal-text"></i> Add your own items to the list of items to pick from in future</li>
+                    <li><i class="fas fa-trash teal-text"></i> Delete items from the provided list or from your own items</li>
+                    <li><i class="fas fa-edit teal-text"></i> Edit items on your shopping list</li>
+                </ul>
+                <div class="center-align">
+                    <a class="waves-effect waves-light btn-large s6 m4" href="{{ url_for('login') }}">Log in</a>
+                    <a class="waves-effect waves-light btn-large s6 m4" href="{{ url_for('register') }}">Register</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
 {% endblock %}

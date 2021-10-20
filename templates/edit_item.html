@@ -1,47 +1,43 @@
 {% extends "base.html" %}
 {% block content %}
-<h3 class="teal-text center-align black-text">Edit item</h3>
-<div class="row">
-    <div class="col s12 m8 offset-m2">
-        <form class="col s12" method="POST" action="{{ url_for('edit_item', item_id=item._id) }}">
-            <div class="row">
-                <div class="card-panel amber lighten-5">
-
-                    <!-- pick grocery item -->
-                    <div class="input-field col s12">
-                        <i class="fas fa-shopping-basket prefix teal-text"></i>
-                        <input id="item_name" name="item_name" type="text" class="validate" minlength="2" maxlength="50" value="{{- item.item_name -}}" required>
-                        <label for="item_name">Grocery item</label>
-                    </div>
-
-                    <!-- pick category -->
-                    <div class="input-field col s12">
-                        <i class="fas fa-folder-open prefix teal-text"></i>
-                        <select id="category_name" name="category_name" class="validate" required>
-                            <option value="" disabled>Category</option>
-                            {% for category in categories %}
-                                {% if category.category_name == item.category_name %}
-                                    <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
-                                {% else %}
-                                    <option value="{{ category.category_name }}">{{ category.category_name }}</option>
-                                {% endif %}
-                            }
-                            {% endfor %}
-                        </select>
-                        <label for="category_name">Category</label>
-                    </div>
-
-                    <!-- submit button -->
-                    <div class="row">
-                        <div class="col s12 center-align">
-                            <a href="{{ url_for('get_items')}}" class="col s6 waves-effect waves-light btn-large red">Cancel</a>
-                            <button type="submit" class="col s6 waves-effect waves-light btn-large">Edit item
-                            </button>
+    <h3 class="teal-text center-align black-text">Edit item</h3>
+    <div class="row">
+        <div class="col s12 m8 offset-m2">
+            <form class="col s12" method="POST" action="{{ url_for('edit_item', item_id=item._id) }}">
+                <div class="row">
+                    <div class="card-panel amber lighten-5">
+                        <!-- pick grocery item -->
+                        <div class="input-field col s12">
+                            <i class="fas fa-shopping-basket prefix teal-text"></i>
+                            <input id="item_name" name="item_name" type="text" class="validate" minlength="2" maxlength="50" value="{{- item.item_name -}}" required>
+                            <label for="item_name">Grocery item</label>
+                        </div>
+                        <!-- pick category -->
+                        <div class="input-field col s12">
+                            <i class="fas fa-folder-open prefix teal-text"></i>
+                            <select id="category_name" name="category_name" class="validate" required>
+                                <option value="" disabled>Category</option>
+                                {% for category in categories %}
+                                    {% if category.category_name == item.category_name %}
+                                        <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+                                    {% else %}
+                                        <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                            <label for="category_name">Category</label>
+                        </div>
+                        <!-- submit button -->
+                        <div class="row">
+                            <div class="col s12 center-align">
+                                <a href="{{ url_for('get_items')}}" class="col s6 waves-effect waves-light btn-large red">Cancel</a>
+                                <button type="submit" class="col s6 waves-effect waves-light btn-large">Edit item
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
-</div>
 {% endblock %}
