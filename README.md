@@ -1,4 +1,6 @@
-# grocs
+# GROCS
+
+![screenshot landing desktop](assets/img/screenshots/screenshot_items_desktop.png)
 
 # MP3
 Milestone project 3
@@ -72,13 +74,15 @@ The testing of CSS and HTML was done through W3C markup Validator and the W3C CS
 ### Further testing
 
 Further testing was done manually.
+* I have checked and clicked back on forth on all href elements on both desktop as well as mobile sizes on both Chrome and Safari with the intent to try to break the system.
 * For first time user user stories, I have asked friends to try this website without any further instructions. There were no major bugs found and UI was found to be non-ambiguous and easy to follow.
 * Testing for responsiveness and other has been done on both desktop as well as mobile sizes on both Chrome and Safari.
 * All functions have been further tested.
 
 ### Known bugs
 * A major shortcoming for this application is the data types used. Ideally, categories should include the items in one structure. If I had to restart this project, I would take a different approach here.
-* No functionality is in place at the moment to remove a user and associated items. This can be added at a later stage but was deemed unnecessary by my mentor for now. 
+* No functionality is in place at the moment to remove a user and associated items. This can be added at a later stage but was deemed unnecessary by my mentor for now.
+* Initialising of items takes a long time. Ideally a visual aid should be shown to indicate that initialisation is in progress.
 
 ## Credits
 
