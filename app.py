@@ -68,13 +68,10 @@ def register():
 
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
-        flash("Registration Successful!")
+        flash("Registration Successful! Please click button below to initialise data.")
         return redirect(url_for("profile", username=session["user"]))
 
     return render_template("registration.html")
-
-def initialise():
-    pass
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -119,7 +116,6 @@ def profile(username):
 @app.route("/initialise/<username>")
 def initialise(username):
     admin_items = mongo.db.items.find({"created_by": "admin"})
-
     for item in admin_items:
         # change user from "admin" to username
         item["created_by"] = username
@@ -127,10 +123,12 @@ def initialise(username):
         if mongo.db.items.count_documents({ 'item_name': request.form.get("item_name"), 'created_by' : session["user"] }, limit = 1) != 0:
             flash("Item already exists.")
             return render_template("add_item.html")
+        # else insert copy with username
         else:
             new_item = deepcopy(item)
             del new_item["_id"]
             mongo.db.items.insert(new_item)
+        flash("Restored initial items")
     return redirect(url_for("profile", username=username))
 
 
