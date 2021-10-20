@@ -5,7 +5,9 @@
         <div class="col s12 m8 offset-m2">
             <div class="card-panel amber lighten-5">
                 <p>username: {{ username }}</p>
-                <!-- TODO: add button to reload initial items -->
+
+                <!-- Button for initialising items -->
+                <a class="waves-effect waves-light btn" href="{{ url_for('initialise', username=username) }}"><i class="fas fa-server"></i> Load initial item list</a>
             </div>
         </div>
     </div>

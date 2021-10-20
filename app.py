@@ -5,6 +5,7 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
+from copy import deepcopy
 if os.path.exists("env.py"):
     import env
 
@@ -42,11 +43,9 @@ def pick_plus_one(item_id, category_id):
     return redirect(url_for("pick_item", category_id=category_id))
 
 
-# TODO: fix bug on this def. atm results in + on categories.html search results not loading
 @app.route("/search_plus_one/<item_id>", methods=["GET", "POST"])
 def search_plus_one(item_id):
     mongo.db.items.update({"_id": ObjectId(item_id)}, { '$inc' : { "in_cupboard": 1 }})
-    category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
     return redirect(url_for("categories"))
 
 
@@ -75,13 +74,7 @@ def register():
     return render_template("registration.html")
 
 def initialise():
-    if session["user"]:
-        admin_items = mongo.db.items.find({"created_by": "admin"})
-        for item in admin_items:
-            # TODO: change user from "admin" to session["user"]
-            item["created_by"] = session["user"]
-            # TODO: push new item to db
-            mongo.db.items.update({"_id": ObjectId(item_id)}, item)
+    pass
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -123,6 +116,24 @@ def profile(username):
     return redirect(url_for("login"))
 
 
+@app.route("/initialise/<username>")
+def initialise(username):
+    admin_items = mongo.db.items.find({"created_by": "admin"})
+
+    for item in admin_items:
+        # change user from "admin" to username
+        item["created_by"] = username
+        # check if item already exists in db
+        if mongo.db.items.count_documents({ 'item_name': request.form.get("item_name"), 'created_by' : session["user"] }, limit = 1) != 0:
+            flash("Item already exists.")
+            return render_template("add_item.html")
+        else:
+            new_item = deepcopy(item)
+            del new_item["_id"]
+            mongo.db.items.insert(new_item)
+    return redirect(url_for("profile", username=session["user"]))
+
+
 @app.route("/logout")
 def logout():
     # remove user from session
@@ -134,6 +145,8 @@ def logout():
 @app.route("/categories")
 def categories():
     categories = mongo.db.categories.find().sort("category_name", 1)
+    # get user from db
+    username = mongo.db.users.find_one({"username":session["user"]})["username"]
     return render_template("categories.html", categories=categories)
 
 @app.route("/add_item", methods=["GET", "POST"])
@@ -195,7 +208,7 @@ def minus_one(item_id):
 
 @app.route("/set_zero/<item_id>")
 def set_zero(item_id):
-    item = mongo.db.items.find_one({"_id": ObjectId(item_id)})
+    #item = mongo.db.items.find_one({"_id": ObjectId(item_id)})
     mongo.db.items.update({"_id": ObjectId(item_id)}, { "$set" : { "in_cupboard": 0 }})
     flash("Item removed from list.")
     print(item_id)
@@ -223,7 +236,6 @@ def search():
     if len(items) == 0:
         flash("No results.")
     categories = mongo.db.categories.find().sort("category_name", 1)
-    # TODO: get category_id to pass on to href for pick_item(category_id)
     return render_template("categories.html", items=items, categories=categories)
 
 
