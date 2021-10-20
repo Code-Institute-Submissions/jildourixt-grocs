@@ -16,6 +16,11 @@ h4 {
     font-weight: 400;
 }
 
+.brand-logo {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 200;
+}
+
 .no-border {
     border-style: hidden;
 }
