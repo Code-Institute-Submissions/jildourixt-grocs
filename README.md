@@ -30,6 +30,9 @@ Milestone project 3
 
 ## Features
 * Responsive on mobile device as well as desktop sizes.
+* No Personal Identifiable Information from the user is taken into this project. 
+* Privacy is granted by using Werkzeug privacy features.
+* CRUD functionality with database.  
 
 
 ## Technologies used
@@ -75,11 +78,11 @@ Further testing was done manually.
 
 ### Known bugs
 * A major shortcoming for this application is the data types used. Ideally, categories should include the items in one structure. If I had to restart this project, I would take a different approach here.
-* When 
+* No functionality is in place at the moment to remove a user and associated items. This can be added at a later stage but was deemed unnecessary by my mentor for now. 
 
 ## Credits
 
 ### Acknowledgements
 * My mentor for continuous helpful feedback.
 * Tutor support at Code Institute for their support and materials.
-* The inital structure for this project is heavily based on the mini project of the Code Institute for the Milestone 3 project. Further implementation for functionality is added on top of this. Many thanks for all the things this has taught me. 
+* The inital structure for this project is heavily based on the mini project of the Code Institute for the Milestone 3 project. Further implementation for functionality is added on top of this. Many thanks and credits for this. 
