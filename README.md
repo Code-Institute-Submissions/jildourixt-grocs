@@ -27,7 +27,7 @@ Milestone project 3
 ### Wireframes
 | Login page mobile | List page mobile |
 | ---------------- | --------------- |
-| ![Login page mobile](assets/img/wireframes/wireframe_mobile_main.png) | ![homepage wireframe mobile](assets/img/wireframes/wireframe_mobile_main.png) |
+| ![Login page mobile](assets/img/wireframes/wireframe_mobile_main.png) | ![homepage wireframe mobile](assets/img/wireframes/wireframe_mobile_list.png) |
 
 ## Features
 * Responsive on mobile device as well as desktop sizes.
@@ -86,15 +86,9 @@ Further testing was done manually.
 
 ## Deployment
 
-### GitHub Pages
+### Private website
 
-The project was deployed to GitHub Pages using the following steps...
-1. Log in to GitHub and locate the [GitHub Repository](https://github.com/jildourixt/grocs.git)
-2. At the top of the Repository (not top of page), locate the "Settings" Button on the menu.
-4. Scroll down the Settings page until you locate the "GitHub Pages" Section.
-5. Under "Source", click the dropdown called "None" and select "Master Branch".
-6. The page will automatically refresh.
-Scroll back down through the page to locate the now published site link in the "GitHub Pages" section.
+The website is deployed on Google Cloud and hosted on my personal website ( jildourixt.nl)
 
 ### Forking the GitHub Repository
 
