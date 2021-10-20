@@ -25,10 +25,9 @@ Milestone project 3
 
 
 ### Wireframes
-| Homepage desktop | Homepage mobile |
+| Login page mobile | List page mobile |
 | ---------------- | --------------- |
-| tbd | ![homepage wireframe mobile](assets/img/wireframes/wireframe_mobile_main.png) |
-| tbd | tbd |
+| ![Login page mobile](assets/img/wireframes/wireframe_mobile_main.png) | ![homepage wireframe mobile](assets/img/wireframes/wireframe_mobile_main.png) |
 
 ## Features
 * Responsive on mobile device as well as desktop sizes.
@@ -83,6 +82,7 @@ Further testing was done manually.
 * A major shortcoming for this application is the data types used. Ideally, categories should include the items in one structure. If I had to restart this project, I would take a different approach here.
 * No functionality is in place at the moment to remove a user and associated items. This can be added at a later stage but was deemed unnecessary by my mentor for now.
 * Initialising of items takes a long time. Ideally a visual aid should be shown to indicate that initialisation is in progress.
+* Wireframes for homepage got lost.
 
 ## Credits
 
