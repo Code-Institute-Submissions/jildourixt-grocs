@@ -5,6 +5,7 @@ $(document).ready(function() {
     $(".sidenav").sidenav({ edge: "right" });
     $('select').formSelect();
     $('.modal').modal();
+    // The following code is taken from Code Institute mini project on Milestone 3. This code is offered as a workaround for Materialize validation shortcommings
     validateMaterializeSelect();
 
     function validateMaterializeSelect() {
