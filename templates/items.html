@@ -29,14 +29,12 @@
                             </div>
                             <!-- buttons -->
                             <div class="button-container">
-                                <!-- edit button -->
-                                <a href="{{ url_for('edit_item', item_id=item._id) }}"><i class="btn-floating btn-small waves-effect waves-light teal darken-3"><i class="fas fa-pen"></i></i></a>
                                 <!-- delete button -->
                                 <a href="{{ url_for('set_zero', item_id=item._id) }}"><i class="btn-floating btn-small waves-effect waves-light red"><i class="fas fa-ban"></i></i></a>
+                                <!-- edit button -->
+                                <a href="{{ url_for('edit_item', item_id=item._id) }}"><i class="btn-floating btn-small waves-effect waves-light teal darken-3"><i class="fas fa-pen"></i></i></a>
                                 <!-- minus one button -->
                                 <a href="{{ url_for('minus_one', item_id=item._id) }}"><i class="btn-floating btn-small waves-effect waves-light teal fas fa-minus"></i></a>
-                                <!-- item counter -->
-                                <a><i class="btn-floating btn-small disabled">{{ item.in_cupboard }}</i></a>
                                 <!-- plus one button -->
                                 <a href="{{ url_for('plus_one', item_id=item._id) }}"><i class="btn-floating btn-small waves-effect waves-light teal fas fa-plus"></i></a>
                             </div>
