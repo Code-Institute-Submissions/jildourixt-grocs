@@ -30,6 +30,21 @@ h4 {
     border-style: hidden;
 }
 
+.devider {
+    border-top: 0.1px solid #bbb;
+}
+
+
+#items-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#button-container {
+    margin-left: auto;
+    padding-top: 15px;
+}
 
 /*media queries*/
 @media (max-width: 812px) {
@@ -37,4 +52,11 @@ h4 {
      display: none;
      visibility: hidden;
   } 
+}
+
+@media (max-width:  400px) {
+    #items-container {
+        flex-direction: column;
+        gap: 15px;
+    }
 }
