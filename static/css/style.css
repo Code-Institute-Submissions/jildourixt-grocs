@@ -16,6 +16,11 @@ h4 {
     font-weight: 400;
 }
 
+.info {
+    color: teal;
+    padding-bottom: 10px;
+}
+
 .brand-logo {
     font-family: 'Roboto Mono', monospace;
     font-weight: 200;

@@ -3,6 +3,10 @@
     <h3 class="center-align">Register</h3>
     <div class="row">
         <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register') }}">
+            <!-- info section -->
+            <div class="info">
+                Want to register? Please pick a unique username and a strong password.
+            </div>
             <div class="card-panel amber lighten-5">
                 <!-- username -->
                 <div class="row">
@@ -20,7 +24,7 @@
                         <label for="password">Password</label>
                     </div>
                     <div class="input-field col s12">
-                        <i class="fas fa-user-lock prefix white-text"></i>
+                        <i class="fas fa-user-lock prefix amber-text text-lighten-5"></i>
                         <input id="password_check" name="password_check" type="password" class="validate">
                         <label for="password_check">Retype password</label>
                     </div>

@@ -1,9 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
-    <h3 class="center-align">Items</h3>
+    <h3 class="center-align">My shopping list</h3>
+
     <!-- Modal Trigger -->
     <div class="row">
         <div class="col s12 m8 offset-m2">
+            <!-- info section -->
+            <div class="info">
+                In this section you view your shopping list. You can also increase or decrease the amount of a certain item, edit the item name or category, or delete an item from your list altogether. 
+                Want to add a different item? Click the shopping cart. 
+            </div>
             <!-- add item button -->
             <div class="right-align">
                 <a class="waves-effect waves-light btn-floating btn-large pulse teal lighten-1" href="{{ url_for('categories') }}"><i class="fas fa-cart-plus"></i></a>
@@ -38,3 +44,4 @@
         </div>
     </div>
 {% endblock %}
+

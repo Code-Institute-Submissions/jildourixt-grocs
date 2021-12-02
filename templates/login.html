@@ -1,8 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
-    <h3 class="center-align">Home</h3>
+    <h3 class="center-align">Log in</h3>
     <div class="row">
         <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('login') }}">
+            <!-- info section -->
+            <div class="info">
+                Please provide your login information.
+            </div>
             <div class="card-panel amber lighten-5">
                 <!-- username -->
                 <div class="row">
