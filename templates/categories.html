@@ -63,7 +63,7 @@
             </div>
             <!-- Add item button -->
             <div class="col s6 m4">
-                <div class="card-panel">
+                <div class="category-card">
                     <span class="center-align">
                         <a href="{{ url_for('add_item') }}">
                             <div>
@@ -75,19 +75,18 @@
                 </div>
             </div>
             {% for category in categories %}
-    	        <div class="col s6 m4">
-    	            <div class="card-panel">
-    	                <span class="center-align">
-    	                    <a href="{{ url_for('pick_item', category_id=category._id) }}">
-    	                        <div>
-    	                            <i class="{{ category.fa_icon }} teal-text large"></i>
-    	                            <p class="teal-text">{{ category.category_name }}</p>
-    	                        </div>
-    	                    </a>
-    	                </span>
-    	            </div>
-    	        </div>
+                <div class="col s6 m4">
+                    <div class="category-card">
+                        <span class="center-align">
+                            <a href="{{ url_for('pick_item', category_id=category._id) }}">
+                                <div>
+                                    <i class="{{ category.fa_icon }} teal-text large"></i>
+                                    <p class="teal-text">{{ category.category_name }}</p>
+                                </div>
+                            </a>
+                        </span>
+                    </div>
+                </div>
             {% endfor %}
-        </div>
     </div>
 {% endblock %}

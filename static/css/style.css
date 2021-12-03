@@ -34,6 +34,13 @@ h4 {
     border-top: 0.1px solid #bbb;
 }
 
+.category-card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.2s;
+    padding-top: 30px;
+    height: 200px;
+    margin-top: 20px;
+}
 
 #items-container {
     display: flex;
@@ -54,7 +61,7 @@ h4 {
   } 
 }
 
-@media (max-width:  400px) {
+@media (max-width:  575px) {
     #items-container {
         flex-direction: column;
         gap: 15px;
