@@ -61,6 +61,25 @@ Milestone project 3
 * [Heroku](http://www.heroku.com)
 	* Heroku was used to connect the database to the application.
 
+## Data framework
+For the data framework MongoDB was used. The following data structures are used and linked together: 
+
+* categories
+    * _id
+    * category_name
+    * fa_icon
+* items
+    * _id
+    * category_name
+    * item_name
+    * count
+    * created_by
+* users
+    * username
+    * password
+
+Categories are set and not changeable by application users. Items however can be edited if  the user.username matches the item.created_by. Passwords are secured by Werkzeug. 
+
 ## Testing
 
 The testing of CSS and HTML was done through W3C markup Validator and the W3C CSS Validator Services. The page was tested and validated only with errors related to Flask elements, which are expected. Python code was tested for PEP8 compliance through TutorialPoint
