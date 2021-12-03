@@ -94,10 +94,11 @@ The testing of CSS and HTML was done through W3C markup Validator and the W3C CS
 ### Further testing
 
 Responsiveness has been further tested on the below areas by the use of Google Chrome's inspector function. Here I have inspected all responsiveness and readability on all devices available on the following areas:
-| Test area | Responsive? | Further comments |
+| Test page | Responsive? | Further comments |
 | ---------------- | --------------- | --------------- | 
-| Categories responsiveness | Yes | Grid structure maintained on all devices. |
-| Shopping + pick_item list responsiveness | Yes | Buttons now move under the category on smaller devices. Line out is still on the right for easy use. Text remains readable. |
+| Categories | Yes | Grid structure maintained on all devices. |
+| Shopping + pick_item list | Yes | Buttons now move under the category on smaller devices. Line out is still on the right for easy use. Text remains readable. |
+| Add item | Yes | No abnormalities found. Functionality and readability remains. |
 
 Further testing that has been done is as listed below.
 
@@ -112,6 +113,12 @@ Further testing that has been done is as listed below.
 | Navigation | Pages are linked from multiple places where user experience would ask for it. For example, from the log in page an extra link to the register page is available and visa versa. |
 | Database | Database implementation and forms has been tested manually and works well. User can only access items that they are meant to access, update and remove according to the defensiveness principles. Also sorting of database elements is confirmed to work as expected. |
 | Deployment | Auto-deployment from GitHub has been turned on and is confirmed to work. | 
+
+#### Lighthouse performance
+
+![screenshot Lighthouse performance](assets/img/screenshots/screenshot_lighthouse_performance.png)
+
+Performance on Chrome Lighthouse testing shows very promissing responsiveness as is shown in the screenshot above, with scores over 90%. 
 
 ### Known bugs
 * A major shortcoming for this application is the data types used. Ideally, categories should include the items in one structure. If I had to restart this project, I would take a different approach here.
