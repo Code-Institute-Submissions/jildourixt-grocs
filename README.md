@@ -82,7 +82,7 @@ Further testing that has been done is as listed below.
 
 | Test area | Further comments |
 | ---------------- | --------------- |
-| UI | All fonts are used well and backed up well on all devices. It's consistent throughout the application. Inspected areas manually. Colour scheme is also consistent throughout. |
+| Consistency in font use | All fonts are used well and backed up well on all devices. Inspected areas manually. |
 | Hrefs, buttons and other links | On all pages, hrefs, links and button functionality has been tested by manually clicking these and observing the results. Also tested that all pages are references. No links are broken. |
 | User experience | For (first time) user stories, I have asked friends and family to try out the application without any instructions and to then give me feedback on their experiences. There were no major bugs found and UI was found to be non-ambiguous and easy to follow. |
 | Functions | functions have been bested by using the page and trying to break it. Seems to work smoothly. |
