@@ -101,7 +101,7 @@ The testing of CSS and HTML was done through W3C markup Validator and the W3C CS
 
 | User story | Testing |
 | ---------------- | --------------- |
-| As a first time visitor, I want to instantly understand the main purpose of the site: to keep grocery lists. | The purpose and functionality of the website is stated on the home page. |
+| As a first time visitor, I want to instantly understand the main purpose of the site: to keep grocery lists. | The purpose and functionality of the website is stated on the home page. The purpose of each other page and functionality is listed on the top of the page to guide the user through it, in case the design of the page wouldn't be intuitive enough. |
 | As a first time visitor I want to be able to sign up quickly and start using this website. | The home page and the navbar provides clear linkage to where to sign up or sign in. |
 | As a returning visitor, I want to access the list that I left on my last visit. | Once logged in, the main shopping list is easily accessible by either going through the navbar, or by clicking the logo. The list will be in the state that the user left it, thanks to using a server based data base. |
 | As a frequent visitor I want to be able to quickly view and make changes to the list I left before. | When viewing the list, there are quick action buttons available per item on the list. Functions include, removing, editing, removing one, or adding one. |
