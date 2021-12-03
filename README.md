@@ -1,5 +1,6 @@
 # GROCS
 
+Visit GROCS [here](https://grocs.herokuapp.com/home).
 ![screenshot landing desktop](assets/img/screenshots/screenshot_items_desktop.png)
 
 # MP3
@@ -78,7 +79,7 @@ For the data framework MongoDB was used. The following data structures are used 
     * username
     * password
 
-Categories are set and not changeable by application users. Items however can be edited if  the user.username matches the item.created_by. Passwords are secured by Werkzeug. 
+Categories are set and not changeable by application users. Items however can be edited if the user.username matches the item.created_by. Passwords are secured by Werkzeug. 
 
 ## Testing
 
@@ -119,7 +120,7 @@ Further testing that has been done is as listed below.
 
 ### Private website
 
-The website is deployed on Google Cloud and hosted on my personal website (jildourixt.nl). It is also hosted on [34.116.200.121](http://34.118.58.167/home)
+The website is hosted through Heroku. It is found [here](https://grocs.herokuapp.com/home).
 
 ### Forking the GitHub Repository
 
