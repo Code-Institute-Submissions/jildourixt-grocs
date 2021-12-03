@@ -45,7 +45,7 @@ def pick_item(category_id):
 @app.route('/pick_plus_one/<category_id>/<item_id>', methods=['GET',
            'POST'])
 def pick_plus_one(item_id, category_id):
-    mongo.db.items.update({'_id': ObjectId(item_id)},
+    mongo.db.items.updateOne({'_id': ObjectId(item_id)},
                           {'$inc': {'in_cupboard': 1}})
     category_id = category_id
     category = \
@@ -55,7 +55,7 @@ def pick_plus_one(item_id, category_id):
 
 @app.route('/search_plus_one/<item_id>', methods=['GET', 'POST'])
 def search_plus_one(item_id):
-    mongo.db.items.update({'_id': ObjectId(item_id)},
+    mongo.db.items.updateOne({'_id': ObjectId(item_id)},
                           {'$inc': {'in_cupboard': 1}})
     return redirect(url_for('categories'))
 
@@ -222,7 +222,7 @@ def edit_item(item_id):
             'last_used': last_used,
             'created_by': session['user'],
             }
-        mongo.db.items.update({'_id': ObjectId(item_id)}, submit)
+        mongo.db.items.updateOne({'_id': ObjectId(item_id)}, submit)
         flash('Item successfully updated')
 
     item = mongo.db.items.find_one({'_id': ObjectId(item_id)})
@@ -233,7 +233,7 @@ def edit_item(item_id):
 
 @app.route('/plus_one/<item_id>', methods=['GET', 'POST'])
 def plus_one(item_id):
-    mongo.db.items.update({'_id': ObjectId(item_id)},
+    mongo.db.items.updateOne({'_id': ObjectId(item_id)},
                           {'$inc': {'in_cupboard': 1}})
     items = mongo.db.items.find()
     return render_template('items.html', items=items)
@@ -241,7 +241,7 @@ def plus_one(item_id):
 
 @app.route('/minus_one/<item_id>', methods=['GET', 'POST'])
 def minus_one(item_id):
-    mongo.db.items.update({'_id': ObjectId(item_id)},
+    mongo.db.items.updateOne({'_id': ObjectId(item_id)},
                           {'$inc': {'in_cupboard': -1}})
     items = mongo.db.items.find()
     return render_template('items.html', items=items)
@@ -249,7 +249,7 @@ def minus_one(item_id):
 
 @app.route('/set_zero/<item_id>')
 def set_zero(item_id):
-    mongo.db.items.update({'_id': ObjectId(item_id)},
+    mongo.db.items.updateOne({'_id': ObjectId(item_id)},
                           {'$set': {'in_cupboard': 0}})
     flash('Item removed from list.')
     items = mongo.db.items.find()
@@ -258,7 +258,7 @@ def set_zero(item_id):
 
 @app.route('/set_zero/<item_id>')
 def set_all_zero(username):
-    mongo.db.items.update({'_id': ObjectId(item_id)},
+    mongo.db.items.updateOne({'_id': ObjectId(item_id)},
                           {'$set': {'in_cupboard': 0}})
     flash('Item removed from list.')
     items = mongo.db.items.find()
