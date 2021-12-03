@@ -72,11 +72,23 @@ The testing of CSS and HTML was done through W3C markup Validator and the W3C CS
 
 ### Further testing
 
-Further testing was done manually.
-* I have checked and clicked back on forth on all href elements on both desktop as well as mobile sizes on both Chrome and Safari with the intent to try to break the system.
-* For first time user user stories, I have asked friends to try this website without any further instructions. There were no major bugs found and UI was found to be non-ambiguous and easy to follow.
-* Testing for responsiveness and other has been done on both desktop as well as mobile sizes on both Chrome and Safari.
-* All functions have been further tested.
+Responsiveness has been further tested on the below areas by the use of Google Chrome's inspector function. Here I have inspected all responsiveness and readability on all devices available on the following areas:
+| Test area | Responsive? | Further comments |
+| ---------------- | --------------- | --------------- | 
+| Categories responsiveness | Yes | Grid structure maintained on all devices. |
+| Shopping + pick_item list responsiveness | Yes | Buttons now move under the category on smaller devices. Line out is still on the right for easy use. Text remains readable. |
+
+Further testing that has been done is as listed below.
+
+| Test area | Further comments |
+| ---------------- | --------------- |
+| UI | All fonts are used well and backed up well on all devices. It's consistent throughout the application. Inspected areas manually. Colour scheme is also consistent throughout. |
+| Hrefs, buttons and other links | On all pages, hrefs, links and button functionality has been tested by manually clicking these and observing the results. Also tested that all pages are references. No links are broken. |
+| User experience | For (first time) user stories, I have asked friends and family to try out the application without any instructions and to then give me feedback on their experiences. There were no major bugs found and UI was found to be non-ambiguous and easy to follow. |
+| Functions | functions have been bested by using the page and trying to break it. Seems to work smoothly. |
+| Input | Validation of user input is being validated for usernames and passwords. Invalid input results in an appropriate flash message. |
+| Cookies | Pages have been tested with and without cookies enabled |
+| Navigation | Pages are linked from multiple places where user experience would ask for it. For example, from the log in page an extra link to the register page is available and visa versa. |
 
 ### Known bugs
 * A major shortcoming for this application is the data types used. Ideally, categories should include the items in one structure. If I had to restart this project, I would take a different approach here.
