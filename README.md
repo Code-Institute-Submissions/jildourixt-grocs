@@ -66,16 +66,17 @@ Milestone project 3
 For the data framework MongoDB was used. The following data structures are used and linked together: 
 
 * categories
-    * _id
+    * id
     * category_name
     * fa_icon
 * items
-    * _id
+    * id
     * category_name
     * item_name
     * count
     * created_by
 * users
+	* id
     * username
     * password
 
@@ -102,13 +103,15 @@ Further testing that has been done is as listed below.
 
 | Test area | Further comments |
 | ---------------- | --------------- |
-| Consistency in font use | All fonts are used well and backed up well on all devices. Inspected areas manually. |
+| UI | All fonts are used well and backed up well on all devices. Inspected areas manually. UI is clean and readable on all tested device sizes above. |
 | Hrefs, buttons and other links | On all pages, hrefs, links and button functionality has been tested by manually clicking these and observing the results. Also tested that all pages are references. No links are broken. |
 | User experience | For (first time) user stories, I have asked friends and family to try out the application without any instructions and to then give me feedback on their experiences. There were no major bugs found and UI was found to be non-ambiguous and easy to follow. |
 | Functions | functions have been bested by using the page and trying to break it. Seems to work smoothly. |
 | Input | Validation of user input is being validated for usernames and passwords. Invalid input results in an appropriate flash message. |
 | Cookies | Pages have been tested with and without cookies enabled |
 | Navigation | Pages are linked from multiple places where user experience would ask for it. For example, from the log in page an extra link to the register page is available and visa versa. |
+| Database | Database implementation and forms has been tested manually and works well. User can only access items that they are meant to access, update and remove according to the defensiveness principles. Also sorting of database elements is confirmed to work as expected. |
+| Deployment | Auto-deployment from GitHub has been turned on and is confirmed to work. | 
 
 ### Known bugs
 * A major shortcoming for this application is the data types used. Ideally, categories should include the items in one structure. If I had to restart this project, I would take a different approach here.
@@ -142,6 +145,10 @@ By forking the GitHub Repository we make a copy of the original repository on ou
 $ git clone https://github.com/jildourixt/grocs.git
 ```
 7. Press Enter. Your local clone will be created.
+8. Your local copy can be run with python3, using the following command:
+```
+python3 app.py
+```
 
 ## Credits
 
