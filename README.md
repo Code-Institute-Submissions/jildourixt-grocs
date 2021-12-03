@@ -53,6 +53,8 @@ Milestone project 3
 	* Wireframes|cc is used for the initial wireframes.
 * [Materialize](https://materializecss.com)
 	* Materialize was used for the front end framework. 
+* [jQuery](https://jquery.com/)
+	* jQuery has been used wherever JavaScript has been implemented.
 * [MongoDB](https://www.mongodb.com/)
 	* MongoDB was used as the database for this project.
 * [Flask](https://flask.palletsprojects.com/en/2.0.x/)
@@ -61,8 +63,12 @@ Milestone project 3
 	* Werkzeug was used to facilitate secure log in.
 * [Heroku](http://www.heroku.com)
 	* Heroku was used to connect the database to the application.
+* [Git](https://git-scm.com/)
+	* Git was used for version control to push and pull from and to GitHub.
+* [GitHub](https://github.com/)
+	* GitHub is being used to store the project and its code.
 
-## Data framework
+### Data framework
 For the data framework MongoDB was used. The following data structures are used and linked together: 
 
 * categories
@@ -91,14 +97,31 @@ The testing of CSS and HTML was done through W3C markup Validator and the W3C CS
 * [TutorialPoint](https://www.tutorialspoint.com/online_python_formatter.htm)
 * JavaScript was tested through [JSHint](https://jshint.com) and returned no errors.
 
-### Further testing
+### User stories testing
+
+| User story | Testing |
+| ---------------- | --------------- |
+| As a first time visitor, I want to instantly understand the main purpose of the site: to keep grocery lists. | The purpose and functionality of the website is stated on the home page. |
+| As a first time visitor I want to be able to sign up quickly and start using this website. | The home page and the navbar provides clear linkage to where to sign up or sign in. |
+| As a returning visitor, I want to access the list that I left on my last visit. | Once logged in, the main shopping list is easily accessible by either going through the navbar, or by clicking the logo. The list will be in the state that the user left it, thanks to using a server based data base. |
+| As a frequent visitor I want to be able to quickly view and make changes to the list I left before. | When viewing the list, there are quick action buttons available per item on the list. Functions include, removing, editing, removing one, or adding one. |
+
+
+
+
+### Responsiveness testing
 
 Responsiveness has been further tested on the below areas by the use of Google Chrome's inspector function. Here I have inspected all responsiveness and readability on all devices available on the following areas:
-| Test page | Responsive? | Further comments |
+| Test page/area | Responsive? | Further comments |
 | ---------------- | --------------- | --------------- | 
-| Categories | Yes | Grid structure maintained on all devices. |
-| Shopping + pick_item list | Yes | Buttons now move under the category on smaller devices. Line out is still on the right for easy use. Text remains readable. |
-| Add item | Yes | No abnormalities found. Functionality and readability remains. |
+| Navigation | Yes | Navigation interface scales well for desktop and smaller devices. Navbar collapses into a burger button on smaller devices responsively. | 
+| Categories | Yes | Grid structure maintained on all devices. Also search area and functionality functions as expected. |
+| Shopping, Pick item | Yes | Buttons now move under the category on smaller devices. Line out is still on the right for easy use. Text remains readable. |
+| Add item, Edit item | Yes | No abnormalities found. Functionality and readability remains. |
+| Log in | Yes | No abnormalities found. Lay out remains clean and scales well for smaller devices. |
+
+
+### Further testing
 
 Further testing that has been done is as listed below.
 
