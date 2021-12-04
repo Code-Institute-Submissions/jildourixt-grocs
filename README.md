@@ -153,7 +153,7 @@ Performance on Chrome Lighthouse testing shows very promissing responsiveness as
 
 ### Private website
 
-The website is hosted through Heroku. It is found [here](https://grocs.herokuapp.com/home).
+The website is hosted through Heroku. It is found [here](https://grocs.herokuapp.com/home). To keep things secret, environment variables are stored on Heroku as well and os.get is used.
 
 ### Forking the GitHub Repository
 
