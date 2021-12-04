@@ -222,7 +222,8 @@ def edit_item(item_id):
             'last_used': last_used,
             'created_by': session['user'],
             }
-        mongo.db.items.update_one({'_id': ObjectId(item_id)}, submit)
+        #mongo.db.items.update_one({'_id': ObjectId(item_id)}, submit)
+        mongo.db.items.update_one({'_id': ObjectId(item_id)}, {"$set": submit})
         flash('Item successfully updated')
 
     item = mongo.db.items.find_one({'_id': ObjectId(item_id)})
