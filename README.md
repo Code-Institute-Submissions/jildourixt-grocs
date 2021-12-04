@@ -135,7 +135,7 @@ Further testing that has been done is as listed below.
 | Cookies | Pages have been tested with and without cookies enabled |
 | Navigation | Pages are linked from multiple places where user experience would ask for it. For example, from the log in page an extra link to the register page is available and visa versa. |
 | Database | Database implementation and forms has been tested manually and works well. User can only access items that they are meant to access, update and remove according to the defensiveness principles. Also sorting of database elements is confirmed to work as expected. |
-| Deployment | Auto-deployment from GitHub has been turned on and is confirmed to work. | 
+| Deployment | Auto-deployment from GitHub has been turned on and is confirmed to work. Deployment on Heroku introduced some problems at first with breaking the sunset update functions which worked locally, but all seem to have been fixed now. | 
 
 #### Lighthouse performance
 
