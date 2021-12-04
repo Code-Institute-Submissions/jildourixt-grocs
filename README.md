@@ -107,11 +107,10 @@ The testing of CSS and HTML was done through W3C markup Validator and the W3C CS
 | As a frequent visitor I want to be able to quickly view and make changes to the list I left before. | When viewing the list, there are quick action buttons available per item on the list. Functions include, removing, editing, removing one, or adding one. |
 
 
-
-
 ### Responsiveness testing
 
-Responsiveness has been further tested on the below areas by the use of Google Chrome's inspector function. Here I have inspected all responsiveness and readability on all devices available on the following areas:
+Responsiveness has been further tested on the below areas by the use of Google Chrome's inspector function. In general, some bug that were thrown were the overlay of buttons on text on smaller devices, due to overcrowding some Materialize templates. Fixed by replacing some Materialize templating with vanilla CSS to push buttons down instead of over. Here I have inspected all responsiveness and usability on all devices available on the following areas:
+
 | Test page/area | Responsive? | Further comments |
 | ---------------- | --------------- | --------------- | 
 | Navigation | Yes | Navigation interface scales well for desktop and smaller devices. Navbar collapses into a burger button on smaller devices responsively. | 
@@ -128,14 +127,14 @@ Further testing that has been done is as listed below.
 | Test area | Further comments |
 | ---------------- | --------------- |
 | UI | All fonts are used well and backed up well on all devices. Inspected areas manually. UI is clean and readable on all tested device sizes above. |
-| Hrefs, buttons and other links | On all pages, hrefs, links and button functionality has been tested by manually clicking these and observing the results. Also tested that all pages are references. No links are broken. |
-| User experience | For (first time) user stories, I have asked friends and family to try out the application without any instructions and to then give me feedback on their experiences. There were no major bugs found and UI was found to be non-ambiguous and easy to follow. |
+| Functionality | On all pages, hrefs, links and button functionality has been tested by manually clicking these and observing the results. Also tested that all pages are references. No links are broken. |
+| Usability | For (first time) user stories, I have asked friends and family to try out the application without any instructions and to then give me feedback on their experiences. There were no major bugs found and UI was found to be non-ambiguous and easy to follow. |
 | Functions | functions have been bested by using the page and trying to break it. Seems to work smoothly. |
 | Input | Validation of user input is being validated for usernames and passwords. Invalid input results in an appropriate flash message. |
 | Cookies | Pages have been tested with and without cookies enabled |
 | Navigation | Pages are linked from multiple places where user experience would ask for it. For example, from the log in page an extra link to the register page is available and visa versa. |
-| Database | Database implementation and forms has been tested manually and works well. User can only access items that they are meant to access, update and remove according to the defensiveness principles. Also sorting of database elements is confirmed to work as expected. |
-| Deployment | Auto-deployment from GitHub has been turned on and is confirmed to work. Deployment on Heroku introduced some problems at first with breaking the sunset update functions which worked locally, but all seem to have been fixed now. | 
+| Data management | Database implementation and forms has been tested manually and works well. User can only access items that they are meant to access, update and remove according to the defensiveness principles. Also sorting of database elements is confirmed to work as expected. |
+| Deployment | Auto-deployment from GitHub has been turned on and is confirmed to work. Deployment on Heroku introduced some problems at first with breaking the sunset update functions which worked locally, but all seem to have been fixed now by introducing the `update_one` method. | 
 
 #### Lighthouse performance
 
